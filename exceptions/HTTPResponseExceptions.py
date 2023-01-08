@@ -11,4 +11,3 @@ class HTTP404(HTTPResponseException):
 class HTTP405(HTTPResponseException):
     message = "Method not allowed"
     status_code = 405
-
