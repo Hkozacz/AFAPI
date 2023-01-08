@@ -1,7 +1,18 @@
-from starlette import requests
+import logging
+logger = logging.getLogger("uvicorn")
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print(dir(requests))
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+async def app(scope, receive, send):
+    assert scope['type'] == 'http'
+    x = await receive()
+    logger.info(scope["path"])
+    await send({
+        'type': 'http.response.start',
+        'status': 200,
+        'headers': [
+            [b'content-type', b'text/plain'],
+        ],
+    })
+    await send({
+        'type': 'http.response.body',
+        'body': b'Hello, world!',
+    })
