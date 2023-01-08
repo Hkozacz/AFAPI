@@ -7,20 +7,13 @@ dispatcher = Dispatcher(schema=schema)
 
 async def app(scope, receive, send):
     assert scope['type'] == 'http'
-    endpoint = dispatcher.get_endpoint_method(scope["path"], scope["method"])
-    if type(endpoint) is int:
-        status = endpoint
-    else:
-        response = endpoint(None, None)
-        status = response["status"]
+    response = await dispatcher.dispatch(scope, receive)
     await send({
         'type': 'http.response.start',
-        'status': status,
-        'headers': [
-            [b'content-type', b'text/json'],
-        ],
+        'status': response.status,
+        'headers': response.headers
     })
     await send({
         'type': 'http.response.body',
-        'body': b'Hello, world!',
+        'body': response.body,
     })

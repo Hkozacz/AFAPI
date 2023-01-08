@@ -1,5 +1,7 @@
-from models.HTTP import Response
+from models.HTTP import Request
 
 
-def hello_world(request, header) -> dict:
-    return {"hello": "world"}
+def hello_world(request: Request) -> str:
+    return request.body + str(request.query_params)
+
+
