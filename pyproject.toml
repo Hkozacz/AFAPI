@@ -9,6 +9,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 uvicorn = "^0.20.0"
+pre-commit = "^2.21.0"
 
 [build-system]
 requires = ["poetry-core"]
