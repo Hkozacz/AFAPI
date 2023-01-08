@@ -1,4 +1,5 @@
 from logger import logger
+from models.HTTP import Response
 
 
 class Dispatcher:
@@ -19,4 +20,9 @@ class Dispatcher:
             return curr["methods"][method]
         except KeyError:
             return 405
+
+    @staticmethod
+    def get_response(func: callable) -> Response:
+        response_body = func(None, None)
+
 
