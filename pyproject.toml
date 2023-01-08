@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "afapi"
+version = "0.0.1"
+description = "Web framework for seting up endpoints easy af"
+authors = ["Hubert <hkozacz@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+uvicorn = "^0.20.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
