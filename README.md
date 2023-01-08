@@ -109,3 +109,9 @@ request thata have couple fo easy accessible parameters!
 # Response data
 You can `return` anything serializable (everything except objects, callables etc.)
 dispatcher will automatically serialize it!
+
+# TODO
+* Make schema initializing automatic with using CLI
+* create CLI for creating necessery files in project, and starting server
+* make methods part of schema Optional (assume that all methods are allowed)
+* publish package an pypi
