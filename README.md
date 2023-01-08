@@ -1,5 +1,5 @@
 
-# AFAPI (Work in progress)
+# AFAPI 0.0.1 (Work in progress)
 
 Sometimes, we just want to create some endpoint and don't think about anything else.
 Sure FastAPI is easy, but i still felt that setting up some basic endpoints can be easier and quicker.
