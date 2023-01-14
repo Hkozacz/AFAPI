@@ -21,6 +21,8 @@ class Dispatcher:
         :return: callable function matched with path
         """
         path_items = path.split("/")
+        if len(path_items) > 1 and path_items[-1] == "":
+            path_items.pop(-1)
         curr = self.schema
         for item in path_items:
             try:
