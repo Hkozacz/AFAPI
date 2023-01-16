@@ -21,6 +21,8 @@ class Dispatcher:
         :return: callable function matched with path
         """
         path_items = path.split("/")
+        if len(path_items) > 1 and path_items[-1] == "":
+            path_items.pop(-1)
         curr = self.schema
         for item in path_items:
             try:
@@ -90,6 +92,8 @@ class Dispatcher:
         :return: query params as dict.
         """
         query_list = query_string.decode("utf-8").split("&")
+        if query_list == [""]:
+            return {}
         return {
             param[: param.find("=")]: param[param.find("=") + 1 :]
             for param in query_list
