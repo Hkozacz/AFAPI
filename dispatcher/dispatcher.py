@@ -92,6 +92,8 @@ class Dispatcher:
         :return: query params as dict.
         """
         query_list = query_string.decode("utf-8").split("&")
+        if query_list == [""]:
+            return {}
         return {
             param[: param.find("=")]: param[param.find("=") + 1 :]
             for param in query_list
